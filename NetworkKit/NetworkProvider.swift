@@ -2,11 +2,11 @@ import Foundation
 
 public class NetworkProvider<Request: RequestProtocol> {
     public typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
-    public typealias Fetcher = ((URLRequest, NetworkProvider.CompletionHandler?) -> CancellableTask)?
+    public typealias Fetcher = (URLRequest, NetworkProvider.CompletionHandler?) -> CancellableTask
     
     private var fetcher: Fetcher
     
-    public init(fetcher: Fetcher) {
+    public init(fetcher: @escaping Fetcher) {
         self.fetcher = fetcher
     }
     
@@ -28,7 +28,7 @@ public class NetworkProvider<Request: RequestProtocol> {
             return nil
         }
         
-        return fetcher?(urlRequest, completion)
+        return fetcher(urlRequest, completion)
     }
     
     public static func makeDefaultProvider() -> NetworkProvider<Request> {
