@@ -63,3 +63,5 @@ provider.request(.profileByID(id: 1)) { result in
 ## Installation
 
 Currently manual yet, just add this project to your workspace & don't forget to link the `NetworkKit.framework` at your app build phase.
+
+Feedbacks is appreciated, so we can learn together :D
