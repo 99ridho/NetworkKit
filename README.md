@@ -53,7 +53,7 @@ extension ProfileRequest: RequestProtocol {
 Then make the provider & do some request!
 
 ```swift
-let provider = NetworkProvider<ProfileRequest>.makeDefaultProvider()
+let provider = NetworkProvider<ProfileRequest>()
 
 provider.request(.profileByID(id: 1)) { result in 
     // handle your result
