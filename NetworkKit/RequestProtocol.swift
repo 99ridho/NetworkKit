@@ -1,11 +1,3 @@
-//
-//  RequestProtocol.swift
-//  Contacts
-//
-//  Created by Ridho Pratama on 27/07/19.
-//  Copyright © 2019 GoJek. All rights reserved.
-//
-
 import Foundation
 
 typealias Parameters = [String : Any]
