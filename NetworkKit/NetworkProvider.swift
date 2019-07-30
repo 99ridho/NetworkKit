@@ -1,16 +1,16 @@
 import Foundation
 
-class NetworkProvider<Request: RequestProtocol> {
-    typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
-    typealias Fetcher = ((URLRequest, NetworkProvider.CompletionHandler?) -> Void)?
+public class NetworkProvider<Request: RequestProtocol> {
+    public typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
+    public typealias Fetcher = ((URLRequest, NetworkProvider.CompletionHandler?) -> Void)?
     
     private var fetcher: Fetcher
     
-    init(fetcher: Fetcher) {
+    public init(fetcher: Fetcher) {
         self.fetcher = fetcher
     }
     
-    func request (_ request: Request, completion: NetworkProvider.CompletionHandler?) {
+    public func request (_ request: Request, completion: NetworkProvider.CompletionHandler?) {
         let url = request.baseURL.appendingPathComponent(request.path)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
@@ -29,7 +29,7 @@ class NetworkProvider<Request: RequestProtocol> {
         fetcher?(urlRequest, completion)
     }
     
-    static func makeDefaultProvider() -> NetworkProvider<Request> {
+    public static func makeDefaultProvider() -> NetworkProvider<Request> {
         let fetcher: NetworkProvider.Fetcher = { (urlRequest, completion) in
             let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, urlResponse, error) in
                 completion?(data, urlResponse, error)

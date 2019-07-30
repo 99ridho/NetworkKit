@@ -1,9 +1,9 @@
 import Foundation
 
-struct URLParameterEncoder: ParameterEncoder {
-    static let defaultInstance = URLParameterEncoder()
+public struct URLParameterEncoder: ParameterEncoder {
+    public static let defaultInstance = URLParameterEncoder()
     
-    func encode(parameters: Parameters, andAttachTo urlRequest: inout URLRequest) throws {
+    public func encode(parameters: Parameters, andAttachTo urlRequest: inout URLRequest) throws {
         guard let url = urlRequest.url else {
             throw NetworkProviderError.missingURL
         }

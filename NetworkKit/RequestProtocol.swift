@@ -1,8 +1,8 @@
 import Foundation
 
-typealias Parameters = [String : Any]
+public typealias Parameters = [String : Any]
 
-enum RequestMethod: String {
+public enum RequestMethod: String {
     case get = "GET"
     case post = "POST"
     case put = "PUT"
@@ -10,7 +10,7 @@ enum RequestMethod: String {
     case delete = "DELETE"
 }
 
-protocol RequestProtocol {
+public protocol RequestProtocol {
     var baseURL: URL { get }
     var path: String { get }
     var parameters: Parameters { get }

@@ -1,6 +1,6 @@
 import Foundation
 
-enum NetworkProviderError: Error {
+public enum NetworkProviderError: Error {
     case encodingError(Error)
     case mappingError(Error)
     case networkError(HTTPURLResponse?)
