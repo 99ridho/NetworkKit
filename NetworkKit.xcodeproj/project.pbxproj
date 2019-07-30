@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		E5B138C722F01CE5001354B2 /* NetworkKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5B138BD22F01CE5001354B2 /* NetworkKit.framework */; };
-		E5B138CC22F01CE5001354B2 /* NetworkKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138CB22F01CE5001354B2 /* NetworkKitTests.swift */; };
 		E5B138CE22F01CE5001354B2 /* NetworkKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E5B138C022F01CE5001354B2 /* NetworkKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5B138E922F01DD2001354B2 /* ParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138E622F01DD2001354B2 /* ParameterEncoder.swift */; };
+		E5B138EA22F01DD2001354B2 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138E722F01DD2001354B2 /* URLParameterEncoder.swift */; };
+		E5B138EB22F01DD2001354B2 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138E822F01DD2001354B2 /* JSONParameterEncoder.swift */; };
+		E5B138F022F01E2A001354B2 /* JSONParameterEncoderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138EC22F01E2A001354B2 /* JSONParameterEncoderTest.swift */; };
+		E5B138F122F01E2A001354B2 /* URLParameterEncoderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138ED22F01E2A001354B2 /* URLParameterEncoderTest.swift */; };
+		E5B138F522F01ED4001354B2 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138F422F01ED4001354B2 /* RequestProtocol.swift */; };
+		E5B138F722F01EF6001354B2 /* NetworkProviderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138F622F01EF6001354B2 /* NetworkProviderError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +33,14 @@
 		E5B138C022F01CE5001354B2 /* NetworkKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkKit.h; sourceTree = "<group>"; };
 		E5B138C122F01CE5001354B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5B138C622F01CE5001354B2 /* NetworkKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5B138CB22F01CE5001354B2 /* NetworkKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKitTests.swift; sourceTree = "<group>"; };
 		E5B138CD22F01CE5001354B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5B138E622F01DD2001354B2 /* ParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoder.swift; sourceTree = "<group>"; };
+		E5B138E722F01DD2001354B2 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
+		E5B138E822F01DD2001354B2 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
+		E5B138EC22F01E2A001354B2 /* JSONParameterEncoderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoderTest.swift; sourceTree = "<group>"; };
+		E5B138ED22F01E2A001354B2 /* URLParameterEncoderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoderTest.swift; sourceTree = "<group>"; };
+		E5B138F422F01ED4001354B2 /* RequestProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		E5B138F622F01EF6001354B2 /* NetworkProviderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProviderError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,9 @@
 		E5B138BF22F01CE5001354B2 /* NetworkKit */ = {
 			isa = PBXGroup;
 			children = (
+				E5B138E522F01DD2001354B2 /* Encoding */,
+				E5B138F422F01ED4001354B2 /* RequestProtocol.swift */,
+				E5B138F622F01EF6001354B2 /* NetworkProviderError.swift */,
 				E5B138C022F01CE5001354B2 /* NetworkKit.h */,
 				E5B138C122F01CE5001354B2 /* Info.plist */,
 			);
@@ -80,10 +95,21 @@
 		E5B138CA22F01CE5001354B2 /* NetworkKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				E5B138CB22F01CE5001354B2 /* NetworkKitTests.swift */,
+				E5B138EC22F01E2A001354B2 /* JSONParameterEncoderTest.swift */,
+				E5B138ED22F01E2A001354B2 /* URLParameterEncoderTest.swift */,
 				E5B138CD22F01CE5001354B2 /* Info.plist */,
 			);
 			path = NetworkKitTests;
+			sourceTree = "<group>";
+		};
+		E5B138E522F01DD2001354B2 /* Encoding */ = {
+			isa = PBXGroup;
+			children = (
+				E5B138E622F01DD2001354B2 /* ParameterEncoder.swift */,
+				E5B138E722F01DD2001354B2 /* URLParameterEncoder.swift */,
+				E5B138E822F01DD2001354B2 /* JSONParameterEncoder.swift */,
+			);
+			path = Encoding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +174,7 @@
 				TargetAttributes = {
 					E5B138BC22F01CE5001354B2 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 					E5B138C522F01CE5001354B2 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -194,6 +221,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B138F722F01EF6001354B2 /* NetworkProviderError.swift in Sources */,
+				E5B138EB22F01DD2001354B2 /* JSONParameterEncoder.swift in Sources */,
+				E5B138E922F01DD2001354B2 /* ParameterEncoder.swift in Sources */,
+				E5B138EA22F01DD2001354B2 /* URLParameterEncoder.swift in Sources */,
+				E5B138F522F01ED4001354B2 /* RequestProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +233,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B138CC22F01CE5001354B2 /* NetworkKitTests.swift in Sources */,
+				E5B138F022F01E2A001354B2 /* JSONParameterEncoderTest.swift in Sources */,
+				E5B138F122F01E2A001354B2 /* URLParameterEncoderTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +374,7 @@
 		E5B138D222F01CE5001354B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -359,6 +393,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = id.ridhopratama.NetworkKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -367,6 +402,7 @@
 		E5B138D322F01CE5001354B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -393,6 +429,7 @@
 		E5B138D522F01CE5001354B2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B68EH8VRHF;
 				INFOPLIST_FILE = NetworkKitTests/Info.plist;
@@ -411,6 +448,7 @@
 		E5B138D622F01CE5001354B2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B68EH8VRHF;
 				INFOPLIST_FILE = NetworkKitTests/Info.plist;
