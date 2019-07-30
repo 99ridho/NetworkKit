@@ -6,7 +6,20 @@ public class NetworkProvider<Request: RequestProtocol> {
     
     private var fetcher: Fetcher
     
-    public init(fetcher: @escaping Fetcher) {
+    public init(
+        fetcher: @escaping Fetcher = { (urlRequest, completion) -> CancelableTask in
+            let task = URLSession.shared.dataTask(
+                with: urlRequest,
+                completionHandler: { (data, urlResponse, error) in
+                    completion?(data, urlResponse, error)
+                }
+            )
+        
+            task.resume()
+        
+            return task
+        }
+    ) {
         self.fetcher = fetcher
     }
     
@@ -30,19 +43,4 @@ public class NetworkProvider<Request: RequestProtocol> {
         
         return fetcher(urlRequest, completion)
     }
-    
-    public static func makeDefaultProvider() -> NetworkProvider<Request> {
-        let fetcher: NetworkProvider.Fetcher = { (urlRequest, completion) -> CancelableTask in
-            let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, urlResponse, error) in
-                completion?(data, urlResponse, error)
-            })
-            
-            task.resume()
-            
-            return task
-        }
-        
-        return NetworkProvider<Request>(fetcher: fetcher)
-    }
 }
-
