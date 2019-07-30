@@ -7,10 +7,13 @@ class NetworkProviderTest: XCTestCase {
         var actualURLRequest: URLRequest?
         
         let request = RequestMock.allContacts
-        setupNetworkProvider(request: request) { (urlRequest, completionHandler) in
+        let provider = NetworkProvider<RequestMock> { (urlRequest, completionHandler) in
             actualURLRequest = urlRequest
             completionHandler?(nil, nil, nil)
+            return MockDataTask()
         }
+        
+        provider.request(request, completion: nil)
         
         var expectedURLRequest = URLRequest(url: request.baseURL.appendingPathComponent(request.path))
         let urlParamEncoder = URLParameterEncoder.defaultInstance
@@ -24,10 +27,13 @@ class NetworkProviderTest: XCTestCase {
         var actualHeaders = [String : String]()
         
         let request = RequestMock.allContacts
-        setupNetworkProvider(request: request) { (urlRequest, completionHandler) in
+        let provider = NetworkProvider<RequestMock> { (urlRequest, completionHandler) in
             actualHeaders = urlRequest.allHTTPHeaderFields ?? [:]
             completionHandler?(nil, nil, nil)
+            return MockDataTask()
         }
+        
+        provider.request(request, completion: nil)
         
         var expectedHeaders = request.headers
         expectedHeaders["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8"
@@ -39,23 +45,43 @@ class NetworkProviderTest: XCTestCase {
         var actualQueryComponents: [URLQueryItem]?
         
         let request = RequestMock.allContacts
-        setupNetworkProvider(request: request) { (urlRequest, completionHandler) in
+        let provider = NetworkProvider<RequestMock> { (urlRequest, completionHandler) in
             guard
                 let url = urlRequest.url,
                 let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false)
             else {
-                return
+                return MockDataTask()
             }
             
             actualQueryComponents = urlComponents.queryItems
             completionHandler?(nil, nil, nil)
+            return MockDataTask()
         }
+        
+        provider.request(request, completion: nil)
 
         XCTAssertTrue(actualQueryComponents != nil, "Query expected to be non-null because request has an parameters on it")
     }
     
-    func setupNetworkProvider(request: RequestMock, fetcher: NetworkProvider<RequestMock>.Fetcher) {
-        let provider = NetworkProvider<RequestMock>(fetcher: fetcher)
-        provider.request(request, completion: nil)
+    func testCancelTask() {
+        let request = RequestMock.allContacts
+        let provider = NetworkProvider<RequestMock> { (urlRequest, completionHandler) in
+            completionHandler?(nil, nil, nil)
+            return MockDataTask()
+        }
+        
+        let cancellable = provider.request(request, completion: nil) as? MockDataTask
+        
+        cancellable?.cancel()
+        
+        XCTAssertTrue(cancellable?.cancelInvoked ?? false, "Cancel function doesn't called")
+    }
+}
+
+class MockDataTask: CancellableTask {
+    var cancelInvoked: Bool = false
+    
+    func cancel() {
+        cancelInvoked = true
     }
 }
