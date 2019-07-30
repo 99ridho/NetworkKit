@@ -78,7 +78,7 @@ class NetworkProviderTest: XCTestCase {
     }
 }
 
-class MockDataTask: CancellableTask {
+class MockDataTask: CancelableTask {
     var cancelInvoked: Bool = false
     
     func cancel() {

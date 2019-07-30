@@ -2,7 +2,7 @@ import Foundation
 
 public class NetworkProvider<Request: RequestProtocol> {
     public typealias CompletionHandler = (Data?, URLResponse?, Error?) -> Void
-    public typealias Fetcher = (URLRequest, NetworkProvider.CompletionHandler?) -> CancellableTask
+    public typealias Fetcher = (URLRequest, NetworkProvider.CompletionHandler?) -> CancelableTask
     
     private var fetcher: Fetcher
     
@@ -11,7 +11,7 @@ public class NetworkProvider<Request: RequestProtocol> {
     }
     
     @discardableResult
-    public func request (_ request: Request, completion: NetworkProvider.CompletionHandler?) -> CancellableTask? {
+    public func request (_ request: Request, completion: NetworkProvider.CompletionHandler?) -> CancelableTask? {
         let url = request.baseURL.appendingPathComponent(request.path)
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
@@ -32,7 +32,7 @@ public class NetworkProvider<Request: RequestProtocol> {
     }
     
     public static func makeDefaultProvider() -> NetworkProvider<Request> {
-        let fetcher: NetworkProvider.Fetcher = { (urlRequest, completion) -> CancellableTask in
+        let fetcher: NetworkProvider.Fetcher = { (urlRequest, completion) -> CancelableTask in
             let task = URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, urlResponse, error) in
                 completion?(data, urlResponse, error)
             })

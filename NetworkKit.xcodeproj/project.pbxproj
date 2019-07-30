@@ -19,7 +19,7 @@
 		E5B138F922F01F70001354B2 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138F822F01F70001354B2 /* NetworkProvider.swift */; };
 		E5B138FC22F01F7C001354B2 /* RequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138FA22F01F7C001354B2 /* RequestMock.swift */; };
 		E5B138FD22F01F7C001354B2 /* NetworkProviderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B138FB22F01F7C001354B2 /* NetworkProviderTest.swift */; };
-		E5B1394122F03A5C001354B2 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B1394022F03A5C001354B2 /* Cancellable.swift */; };
+		E5B1394122F03A5C001354B2 /* Cancelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B1394022F03A5C001354B2 /* Cancelable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +48,7 @@
 		E5B138F822F01F70001354B2 /* NetworkProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		E5B138FA22F01F7C001354B2 /* RequestMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestMock.swift; sourceTree = "<group>"; };
 		E5B138FB22F01F7C001354B2 /* NetworkProviderTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProviderTest.swift; sourceTree = "<group>"; };
-		E5B1394022F03A5C001354B2 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
+		E5B1394022F03A5C001354B2 /* Cancelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancelable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +97,7 @@
 				E5B138F822F01F70001354B2 /* NetworkProvider.swift */,
 				E5B138C022F01CE5001354B2 /* NetworkKit.h */,
 				E5B138C122F01CE5001354B2 /* Info.plist */,
-				E5B1394022F03A5C001354B2 /* Cancellable.swift */,
+				E5B1394022F03A5C001354B2 /* Cancelable.swift */,
 			);
 			path = NetworkKit;
 			sourceTree = "<group>";
@@ -233,7 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B1394122F03A5C001354B2 /* Cancellable.swift in Sources */,
+				E5B1394122F03A5C001354B2 /* Cancelable.swift in Sources */,
 				E5B138F722F01EF6001354B2 /* NetworkProviderError.swift in Sources */,
 				E5B138EB22F01DD2001354B2 /* JSONParameterEncoder.swift in Sources */,
 				E5B138E922F01DD2001354B2 /* ParameterEncoder.swift in Sources */,
